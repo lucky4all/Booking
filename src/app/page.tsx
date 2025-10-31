@@ -17,8 +17,8 @@ export default function Home() {
         <HomeWelcome /> {/* SSR */}
       </main>
 
-      <footer className="text-muted-foreground py-6 text-center text-sm align-bottom items-baseline">
-        <p>BookEase © 2025 - Proyecto Demo</p>
+      <footer className="text-muted-foreground py-6 text-center text-sm align-bottom bottom-0 absolute w-full">
+        <p>Booking It © 2025 - Proyecto Demo</p>
       </footer>
     </>
   );
