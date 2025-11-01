@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 
-export async function proxy(request: NextRequest) {
+export function proxy(request: NextRequest) {
     let cookie = request.cookies.get("token")
     if (cookie) {
         return NextResponse.next()
