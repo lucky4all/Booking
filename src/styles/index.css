@@ -1,21 +1,14 @@
 @import "tailwindcss";
 
-html {
-    position: relative;
-    min-height: 100vh
-}
-
 body {
-    @apply bg-black text-white;
-    margin: 0;
-    margin-bottom: 40px
+    @apply bg-black text-white min-h-screen;
 }
 
 @layer components {
     #login-form {
-        @apply flex flex-col items-center justify-center gap-y-6 border border-gray-400 bg-white/90 shadow-xl w-full max-w-md text-center overflow-hidden p-10 rounded-2xl;
+        @apply flex flex-col items-center justify-center gap-y-6 border border-gray-400 bg-white/90 shadow-xl w-full max-w-md text-center overflow-hidden p-10 rounded-2xl mt-[25vh] shadow-gray-500;
     }
-    #login-form h1, #login-form h2 {
+    #login-form h1 {
         @apply text-2xl font-bold text-gray-800 mb-4;
     }
     #login-form button {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Footer from "@/components/custom/footer";
 
 export const metadata: Metadata = {
   title: "Book it",
@@ -10,6 +11,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
     <html lang="es">
       <body>
         {children}
+        <Footer />
       </body>
     </html>
   );

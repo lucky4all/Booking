@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { Button } from '@/components/ui/button'
 import { Label } from "@/components/ui/label"
+
 import "@/styles/index.css"
 import "@/app/globals.css"
 
@@ -14,7 +15,7 @@ export default function LoginPage() {
     const router = useRouter()
 
     return (
-        <>
+        <div className='flex items-center justify-center'>
          <form id='login-form'>
             <h1>Iniciar Sesión</h1>
             <Label htmlFor='user'>Nombre de Usuario</Label>
@@ -23,6 +24,6 @@ export default function LoginPage() {
             <input id='password' type="password" placeholder="*******" {...register('contraseña')}></input>
             <Button type='submit' variant="secondary">Enviar</Button>
          </form>
-        </>
+        </div>
     )
 }

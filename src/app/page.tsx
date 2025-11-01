@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import HomeWelcome from "@/components/custom/home-welcome";
 import GitHubButton from "@/components/custom/home-header";
 import { Spinner } from "@/components/ui/spinner";
+
 export default function Home() {
   return (
     <>
@@ -16,10 +17,6 @@ export default function Home() {
       <main className="flex flex-col items-center justify-center">
         <HomeWelcome /> {/* SSR */}
       </main>
-
-      <footer className="text-muted-foreground py-6 text-center text-sm align-bottom bottom-0 absolute w-full">
-        <p>Booking It © 2025 - Proyecto Demo</p>
-      </footer>
     </>
   );
 }
