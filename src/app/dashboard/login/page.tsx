@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button'
 import { Label } from "@/components/ui/label"
 
 import "@/styles/index.css"
-import "@/app/globals.css"
 
 export default function LoginPage() {
     
