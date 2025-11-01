@@ -5,19 +5,37 @@ import { useState } from "react"
 import { Button } from '@/components/ui/button'
 import { Label } from "@/components/ui/label"
 import { loginUser } from '@/lib/actions/auth'
+import { LoginDto } from '@/assets/schema'
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert'
+import dynamic from 'next/dynamic'
 
 import "@/styles/index.css"
 
 export default function LoginPage() {
     
     const { register, handleSubmit } = useForm()
-    const [renderSucess, setRenderSucess] = useState(false)
+    const [renderError, setRenderError] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
     const router = useRouter()
 
     async function onSubmit(data: any): Promise<void> {
-        console.log(data)
-        let operation = await loginUser(JSON.stringify(data))
+        let parsed = JSON.stringify(data) as unknown as LoginDto
+        let operation = await loginUser(parsed)
+        
+        if (operation instanceof Error) {
+            setRenderError(true)
+            setErrorMessage(operation.message)
+            return
+        }
+        if (operation.message !== 200) {
+            setRenderError(true)
+            setErrorMessage(typeof operation.message === 'string' ? operation.message : 'Error desconocido')
+            return
+        }
+        setRenderError(false)
+        setErrorMessage('')
         console.log(operation)
+        router.push('/dashboard')
     }
 
     return (
@@ -28,6 +46,12 @@ export default function LoginPage() {
             <input id='user' type="text" placeholder="Admin" {...register('username')} ></input>
             <Label htmlFor='password'>Contraseña</Label>
             <input id='password' type="password" placeholder="*******" {...register('password')}></input>
+            { renderError && (
+                <Alert variant="destructive">
+                    <AlertTitle>Ha ocurrido un error</AlertTitle>
+                    <AlertDescription>{errorMessage}</AlertDescription>
+                </Alert>
+                ) }
             <Button type='submit' variant="secondary">Enviar</Button>
          </form>
         </div>
