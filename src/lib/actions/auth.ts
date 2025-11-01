@@ -1,5 +1,6 @@
 "use server"
 import { cookies } from "next/headers"
+import { ServerError, IncorrectCredentials } from "@/assets/customError"
 
 export async function loginUser(body: any): Promise<any> {
     try {
@@ -15,11 +16,11 @@ export async function loginUser(body: any): Promise<any> {
             
             return { success: true, message: "Usuario logueado correctamente" }
         } else {
-            throw new Error("Body incorrecto")
+            return new IncorrectCredentials()
         }
 
     } catch (error) {
-        return error;
+        return new ServerError()
     }
 
 }
