@@ -1,5 +1,5 @@
 export default async function GitHubButton() {
-   let response = await fetch("https://api.github.com/repos/lucky4all/web-notepad", { next: { revalidate: 3600 } })
+   let response = await fetch("https://api.github.com/repos/lucky4all/Booking", { next: { revalidate: 3600 } })
    let data = await response.json()
    let stars = data.stargazers_count
 
