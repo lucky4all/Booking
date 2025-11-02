@@ -7,7 +7,6 @@ import { Label } from "@/components/ui/label"
 import { loginUser } from '@/lib/actions/auth'
 import { LoginDto } from '@/assets/schema'
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert'
-import dynamic from 'next/dynamic'
 
 import "@/styles/index.css"
 
@@ -47,12 +46,12 @@ export default function LoginPage() {
             <Label htmlFor='password'>Contraseña</Label>
             <input id='password' type="password" placeholder="*******" {...register('password')}></input>
             { renderError && (
-                <Alert variant="destructive">
+                <Alert variant="destructive" className='flex flex-col items-center justify-center'>
                     <AlertTitle>Ha ocurrido un error</AlertTitle>
                     <AlertDescription>{errorMessage}</AlertDescription>
                 </Alert>
                 ) }
-            <Button type='submit' variant="secondary">Enviar</Button>
+            <Button size="lg" type='submit' variant="secondary">Enviar</Button>
          </form>
         </div>
     )

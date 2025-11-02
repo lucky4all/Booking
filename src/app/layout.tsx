@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
 import Footer from "@/components/custom/footer";
+import { Geist } from "next/font/google"
+
+export const geist = Geist({
+  weight: "400",
+  subsets: ["latin"]
+})
 
 export const metadata: Metadata = {
   title: "Book it",
@@ -9,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
   return (
     <html lang="es">
-      <body>
+      <body className={geist.className}>
         {children}
         <Footer />
       </body>
